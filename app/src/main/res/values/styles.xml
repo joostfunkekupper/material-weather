@@ -7,4 +7,20 @@
         <item name="colorPrimaryDark">@color/primary_dark</item>
     </style>
 
+    <style name="CardView">
+
+    </style>
+
+    <style name="CardView.Header">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="CardView.Header.Temperature">
+        <item name="android:textSize">60sp</item>
+    </style>
+    
+    <style name="CardView.Header.Location">
+        <item name="android:textSize">26sp</item>
+    </style>
+
 </resources>

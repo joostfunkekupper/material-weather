@@ -2,31 +2,40 @@ package com.joostfunkekupper.materialweather;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.joostfunkekupper.materialweather.adapter.CardViewRecyclerAdapter;
+
+import java.util.Arrays;
+
 
 public class MainActivity extends ActionBarActivity {
 
-    private Toolbar toolbar;
+    private Toolbar mToolbar;
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
-        initializeView();
-    }
+        mRecyclerView = (RecyclerView) findViewById(R.id.main_recycler_view);
 
-    void initializeView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new CardViewRecyclerAdapter(Arrays.asList("Current Location", "Sydney", "Amsterdam"));
+        mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override

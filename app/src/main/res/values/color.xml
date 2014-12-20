@@ -2,4 +2,9 @@
 <resources>
     <color name="primary_dark">#ff9800</color>
     <color name="primary">#ffab40</color>
+
+    <color name="primary_pressed">@color/primary_dark</color>
+    <color name="ripple">@color/primary_dark</color>
+    
+    <color name="day_blue">#7ec0ee</color>
 </resources>
