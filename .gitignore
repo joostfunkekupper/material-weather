@@ -37,3 +37,6 @@ proguard/
 # Ignore memory logging
 *.hprof
 
+# Ignore specific string files
+app/src/development/res/values/strings.xml
+app/src/production/res/values/strings.xml
