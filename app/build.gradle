@@ -12,9 +12,31 @@ android {
         versionName "1.0"
     }
     buildTypes {
+
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+
         release {
+            debuggable false
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        // Different package names are defined so multiple product flavors can be installed on the same device.
+
+        development {
+            applicationId defaultConfig.applicationId + ".development"
+            manifestPlaceholders = [packageNameId: applicationId + ".debug"]
+        }
+
+        production {
+            applicationId defaultConfig.applicationId
+            manifestPlaceholders = [packageNameId: applicationId]
         }
     }
 }
@@ -25,4 +47,5 @@ dependencies {
     compile 'com.android.support:cardview-v7:21.0.3'
     compile 'com.android.support:recyclerview-v7:21.0.3'
     compile 'com.melnykov:floatingactionbutton:1.1.0'
+    compile 'com.squareup.retrofit:retrofit:1.8.0'
 }
