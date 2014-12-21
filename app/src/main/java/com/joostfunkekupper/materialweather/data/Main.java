@@ -5,6 +5,6 @@ public class Main {
     public double temp;
     public int pressure;
     public int humidity;
-    public int temp_min;
-    public int temp_max;
+    public double temp_min;
+    public double temp_max;
 }
